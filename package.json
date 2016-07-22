@@ -1,0 +1,19 @@
+{
+	"name": "domino-amd-toolkit",
+	"version": "1.0.0",
+	"description": "Domino AMD loader :: The toolkit",
+	"license": "Apache-2.0",
+	"author": {
+		"name": "Lyuben Deninski",
+		"email": "ldeninski@gmail.com"
+	},
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-minify": "0.0.13",
+		"gulp-preprocess": "^2.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ldeninski/domino-amd-toolkit.git"
+	}
+}

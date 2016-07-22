@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"target": "es3",
+		"sourceMap": false,
+		"removeComments": false,
+		"module": "amd",
+        "preserveConstEnums": true
+	}
+}
