@@ -1,5 +1,6 @@
 /// <reference path="amd.d.ts" />
 /// <reference path="java.d.ts" />
+/// <reference path="javax.d.ts" />
 
 declare var session: NotesSession;
 declare var sessionAsSigner: NotesSession;
@@ -13,6 +14,7 @@ declare var param: { [key: string]: any };
 
 declare type int = number;
 declare type double = number;
+declare type UNID = string;
 
 declare module com.ibm.xsp.domino.context {
 	class DominoFacesContext {
@@ -229,6 +231,7 @@ declare class NotesDocument {
 	getItemValueString(itemName: string): string;
 	getItemValueInteger(itemName: string): int;
 	getItemValueDouble(itemName: string): double;
+	getItemValueDateTimeArray(itemName: string): java.util.Vector<NotesDateTime>;
 	getItemValue(name: string): java.util.Vector<any>;
 	save(): boolean
 	save(force: boolean): boolean
@@ -428,4 +431,21 @@ declare class NotesDatabase {
 	setOption: any;
 	sign: any;
 	updateFTIndex: any
+}
+
+declare class I18n {
+	static parseDate(date: string, pattern: string, loc: Locale): Date;
+	static parseDate(date: string, pattern: string, tz: TimeZone): Date;
+	static parseDate(date: string, pattern: string, loc: Locale, tz: TimeZone): Date;
+	static parseDate(date: string, pattern: string): Date;
+	static parseDate(date: string, loc: Locale): Date;
+	static parseDate(date: string): Date;
+}
+
+declare class Locale {
+
+}
+
+declare class TimeZone {
+
 }

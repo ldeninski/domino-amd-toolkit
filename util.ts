@@ -51,7 +51,7 @@ export function tryGetDoc(db: NotesDatabase, unid: string): NotesDocument {
 
 export function isRecycled(obj: any) {
 	try {
-		return (!obj || obj.toString() === "" || (obj instanceof NotesDatabase ? !!obj.getFilePath() : !!obj.toString()))
+		return (!!!obj || obj.toString() === "" || (obj instanceof NotesDatabase ? obj.getReplicaID().length() > 0 : obj.toString() === ""));
 	} catch(e) {
 		return true;
 	}
@@ -175,6 +175,19 @@ export function isAlien(it): boolean {
 	//		Returns true if it is a built-in function or some other kind of
 	//		oddball that *should* report as a function but doesn't
 	return it && !isFunction(it) && /\{\s*\[native code\]\s*\}/.test(String(it)); // Boolean
+}
+
+export function getUniversalID(o: any): string {
+	try {
+		switch (typeof o) {
+			case "NotesXspViewEntry":
+				return o.getUniversalID();
+			case "NotesDocument":
+				return o.getUniversalID();
+			default:
+				return o.getUniversalID();
+		}
+	} catch(e) {return null};
 }
 
 export function docToObject(doc: NotesDocument): { [name: string]: any } {

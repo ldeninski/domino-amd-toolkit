@@ -1,7 +1,6 @@
 define(["require", "exports"], function (require, exports) {
     /// <reference path="typings/com.ibm.domino.d.ts" />
     "use amd";
-    var logLevel = LOG_LEVEL.ERROR;
     (function (LOG_LEVEL) {
         LOG_LEVEL[LOG_LEVEL["DEBUG"] = 0] = "DEBUG";
         LOG_LEVEL[LOG_LEVEL["INFO"] = 1] = "INFO";
@@ -9,6 +8,7 @@ define(["require", "exports"], function (require, exports) {
         LOG_LEVEL[LOG_LEVEL["ERROR"] = 3] = "ERROR";
     })(exports.LOG_LEVEL || (exports.LOG_LEVEL = {}));
     var LOG_LEVEL = exports.LOG_LEVEL;
+    var logLevel = LOG_LEVEL.ERROR;
     function setLevel(level) {
         logLevel = level;
     }

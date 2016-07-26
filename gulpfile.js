@@ -34,4 +34,5 @@ gulp.task('scripts-preprocess', function () {
 			}
 		}))
 		.pipe(gulp.dest('./dist/'))
+		.pipe(gulp.dest('Z:/_JSS/domino-amd-toolkit/dist/'))
 });

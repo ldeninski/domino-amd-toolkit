@@ -1,14 +1,14 @@
 /// <reference path="typings/com.ibm.domino.d.ts" />
 "use amd";
 
-var logLevel:LOG_LEVEL = LOG_LEVEL.ERROR;
-
 export enum LOG_LEVEL {
 	DEBUG,
 	INFO,
 	WARNING,
 	ERROR
 }
+
+var logLevel:LOG_LEVEL = LOG_LEVEL.ERROR;
 
 export function setLevel(level:LOG_LEVEL) {
 	logLevel = level

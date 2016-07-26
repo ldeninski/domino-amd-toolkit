@@ -50,7 +50,7 @@ define(["require", "exports"], function (require, exports) {
     exports.tryGetDoc = tryGetDoc;
     function isRecycled(obj) {
         try {
-            return (!obj || obj.toString() === "" || (obj instanceof NotesDatabase ? !!obj.getFilePath() : !!obj.toString()));
+            return (!!!obj || obj.toString() === "" || (obj instanceof NotesDatabase ? obj.getReplicaID().length() > 0 : obj.toString() === ""));
         }
         catch (e) {
             return true;
@@ -179,6 +179,23 @@ define(["require", "exports"], function (require, exports) {
         return it && !isFunction(it) && /\{\s*\[native code\]\s*\}/.test(String(it)); // Boolean
     }
     exports.isAlien = isAlien;
+    function getUniversalID(o) {
+        try {
+            switch (typeof o) {
+                case "NotesXspViewEntry":
+                    return o.getUniversalID();
+                case "NotesDocument":
+                    return o.getUniversalID();
+                default:
+                    return o.getUniversalID();
+            }
+        }
+        catch (e) {
+            return null;
+        }
+        ;
+    }
+    exports.getUniversalID = getUniversalID;
     function docToObject(doc) {
         if (!doc.isValid())
             throw "Cannot convert doc to object: invalid document";
