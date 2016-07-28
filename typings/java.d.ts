@@ -74,7 +74,7 @@ declare namespace java {
 		}
 
 		export class OutputStream {
-
+			close(): void;
 		}
 
 		export class InputStream {

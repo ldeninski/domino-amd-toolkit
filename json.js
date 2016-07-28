@@ -25,9 +25,9 @@ define(["require", "exports", "log"], function (require, exports, log) {
                     f(this.getUTCSeconds()) + 'Z'
                 : null;
         };
-        Boolean.prototype.toJSON = this_value;
-        Number.prototype.toJSON = this_value;
-        String.prototype.toJSON = this_value;
+        (Boolean.prototype).toJSON = this_value;
+        (Number.prototype).toJSON = this_value;
+        (String.prototype).toJSON = this_value;
     }
     var gap, indent, rep;
     var meta = {

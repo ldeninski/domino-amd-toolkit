@@ -19,6 +19,7 @@ declare type UNID = string;
 declare module com.ibm.xsp.domino.context {
 	class DominoFacesContext {
 		getExternalContext(): DominoExternalContext;
+		responseComplete();
 	}
 
 	class DominoExternalContext {
@@ -169,6 +170,8 @@ declare class NotesView {
 	getEntryByKey(key: string, exactMatch: boolean): NotesViewEntry;
 	refresh(): void;
 	createViewNavFromCategory(category: string): NotesViewNavigator;
+	createViewNavMaxLevel(level: int): NotesViewNavigator;
+	createViewNavMaxLevel(level: int, cacheSize: int): NotesViewNavigator;
 	getAllEntries(): NotesViewEntryCollection;
 	FTSearchSorted(query: string): int
 	FTSearchSorted(query: string, maxdocs: int): int
@@ -225,6 +228,9 @@ declare class NotesViewEntryCollection {
 declare class NotesViewNavigator {
 	getFirst(): NotesViewEntry;
 	getCount(): number;
+	getNth(n: int): NotesViewEntry;
+	getNext(): NotesViewEntry;
+	getNext(entry: NotesViewEntry): NotesViewEntry;
 }
 
 declare class NotesDocument {

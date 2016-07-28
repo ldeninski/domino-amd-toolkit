@@ -39,9 +39,9 @@ if (typeof Date.prototype.toJSON !== 'function') {
 			: null;
 	};
 
-	Boolean.prototype.toJSON = this_value;
-	Number.prototype.toJSON = this_value;
-	String.prototype.toJSON = this_value;
+	(<any>(Boolean.prototype)).toJSON = this_value;
+	(<any>(Number.prototype)).toJSON = this_value;
+	(<any>(String.prototype)).toJSON = this_value;
 }
 
 var gap,
